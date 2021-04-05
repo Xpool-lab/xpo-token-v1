@@ -1,0 +1,63 @@
+{
+  "name": "@xpo-tech/xpo-token-v1",
+  "version": "1.0.0",
+  "description": "Xpool ERC20 token",
+  "files": [
+    "/contracts/**/*.sol"
+  ],
+  "scripts": {
+    "run-env": "npm i && tail -f /dev/null",
+    "hardhat": "hardhat",
+    "hardhat-kovan": "hardhat --network kovan",
+    "hardhat-ropsten": "hardhat --network ropsten",
+    "hardhat-main": "hardhat --network main",
+    "hardhat-docker": "hardhat --network hardhatevm_docker",
+    "hardhat help": "hardhat help",
+    "compile": "SKIP_LOAD=true hardhat compile",
+    "compile:force": "npm run compile -- --force",
+    "compile:force:quiet": "npm run compile:force -- --quiet",
+    "types-gen": "hardhat typechain",
+    "test": "npm run compile:force:quiet && TS_NODE_TRANSPILE_ONLY=1 hardhat test",
+    "coverage": "SKIP_LOAD=true npx hardhat typechain && node --max_old_space_size=6144 node_modules/.bin/hardhat coverage",
+    "dev:main:deployment": "hardhat main-deployment",
+    "bbtest:v1-deploy": "hardhat --network kovan deploy-xpoolTokenV1",
+    "bbtest:v1-init": "hardhat --network kovan initialize-xpool",
+    "bbtest:v1-set-gorvernance": "hardhat --network kovan add-gorvernace",
+    "ci:clean": "rm -rf ./artifacts ./cache ./types"
+  },
+  "devDependencies": {
+    "@nomiclabs/hardhat-ethers": "^2.0.1",
+    "@nomiclabs/hardhat-etherscan": "^2.1.1",
+    "@nomiclabs/hardhat-waffle": "^2.0.1",
+    "@openzeppelin/contracts": "3.0.1",
+    "@typechain/ethers-v5": "^4.0.0",
+    "@types/chai": "4.2.11",
+    "@types/lowdb": "1.0.9",
+    "@types/mocha": "7.0.2",
+    "@types/node": "14.0.5",
+    "bignumber.js": "9.0.0",
+    "buidler-typechain": "0.1.1",
+    "chai": "4.2.0",
+    "chai-bignumber": "3.0.0",
+    "eth-sig-util": "2.5.3",
+    "ethereum-waffle": "^3.2.1",
+    "ethereumjs-util": "7.0.2",
+    "ethers": "^5.0.8",
+    "hardhat": "^2.0.4",
+    "hardhat-typechain": "^0.3.3",
+    "husky": "^4.2.5",
+    "lowdb": "1.0.0",
+    "prettier": "^2.0.5",
+    "prettier-plugin-solidity": "^1.0.0-alpha.53",
+    "solidity-coverage": "^0.7.13",
+    "ts-generator": "^0.1.1",
+    "ts-node": "^9.1.0",
+    "typechain": "^3.0.0",
+    "typescript": "^4.1.2"
+  },
+  "author": "Xpool",
+  "license": "AGPLv3",
+  "dependencies": {
+    "tmp-promise": "^3.0.2"
+  }
+}
